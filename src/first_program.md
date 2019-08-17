@@ -3,6 +3,7 @@
 * First log into Thomas
 * Then `touch file.cpp`
 * Then open vim and type the following
+
 ```c
 #include <iostream>
 
@@ -12,6 +13,7 @@ int main() {
 	cout << "Hello world!" << endl;
 }
 ```
+
 * Then type `:wq`
 * Then type `g++ file.cpp`
 * Type `a.out` and you're good
