@@ -10,3 +10,5 @@
 - [Reference](./ref/reference.md)
     - [ASCII Table](./ref/ascii_table.md)
     - [Unix Commands](./ref/unix_commands.md)
+    - [Data Types](./ref/data_types.md)
+    - [Keywords](./ref/keywords.md)
