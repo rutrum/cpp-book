@@ -14,6 +14,8 @@
     - [Conditional Statements](./example/conditionals.md)
     - [While Loop](./example/while.md)
     - [For Loop](./example/for.md)
+    - [Arrays](./example/arrays.md)
+    - [Functions](./example/functions.md)
 - [Reference](./ref/reference.md)
     - [ASCII Table](./ref/ascii_table.md)
     - [Unix Commands](./ref/unix_commands.md)
