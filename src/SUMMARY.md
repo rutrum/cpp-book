@@ -21,3 +21,4 @@
     - [Unix Commands](./ref/unix_commands.md)
     - [Data Types](./ref/data_types.md)
     - [Keywords](./ref/keywords.md)
+    - [Decimal Percision](./ref/decimal_percision.md)
