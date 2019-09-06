@@ -1,8 +1,6 @@
-# Decimal Percission (C++)
+# Decimal Precision (C++)
 
-
-
-```c
+```cpp
 #include <iostream>
 #include <iomanip>
 
@@ -48,16 +46,16 @@ The temperature is 11.111 degrees centigrade
 
 But like why does this work? What's going on under the hood? Well, first of all to use 
 
-```{c}
+```cpp
 #include <iomanip>
 ```
 
-to give us access to fixed and setprecision(int n) functions/keywords.
+to give us access to fixed and `setprecision(int n)` functions/keywords.
 
 These are pretty neat but let us understand how they work. 
 
 
-### setprecision(int n)
+### `setprecision(int n)`
 
 This makes any numbers that will be cout'ed in the stream and only uses n significant figures.
 So it will only work for numbers after, but still in the same cout chain.
