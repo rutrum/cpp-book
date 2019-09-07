@@ -22,9 +22,6 @@ int main(){
 
     cout << "The temperature is " << fixed << setprecision(3) << temp << " degrees centigrade" << endl;
 
-    printf("The temperature is %.3f degrees centigrade\n", temp);
-
-    fflush(stdout);
 
     return 0;
 
@@ -38,7 +35,7 @@ Please enter the temperature in degrees Fahrenheit:
 The temperature is 11.11111111 degrees centigrade
 The temperature is 11.1 degrees centigrade
 The temperature is 11.111 degrees centigrade
-The temperature is 11.111 degrees centigrade
+
 
 > 
 ```
@@ -64,6 +61,4 @@ So it will only work for numbers after, but still in the same cout chain.
 
 This tells setpercision to only activate percision after the decimal point. 
 
-### printf and fflush
 
-These are the grody C way that you use if for some reason iomanip isn't working or allowed. The first parameter of printf is a string and you insert variables using %and the data type. For each one of these variable you add you add the parameter to the printf function. %f is for floats. %.nf is a float with only n decimal places. It places the stuff in a buffer and needs to be cleared out to actually print to a screen. \n should clear the buffer and print stuff to the screen. If that diesn't work you explicitly flush the buffer with fflush(stdout).
