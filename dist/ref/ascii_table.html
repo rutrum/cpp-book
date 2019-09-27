@@ -1,0 +1,244 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>ASCII Table - C++ Book</title>
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="../first_program.html"><strong aria-hidden="true">1.</strong> Running Your First Program</a></li><li><a href="../thomas.html"><strong aria-hidden="true">2.</strong> Accessing Thomas</a></li><li><a href="../printing.html"><strong aria-hidden="true">3.</strong> Printing to the Terminal</a></li><li><a href="../variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li><ol class="section"><li><a href="../arithmetic.html"><strong aria-hidden="true">4.1.</strong> Arithmetic</a></li></ol></li><li><a href="../conditionals.html"><strong aria-hidden="true">5.</strong> Conditionals</a></li><li><a href="../user_input.html"><strong aria-hidden="true">6.</strong> User Input</a></li><li><a href="../example/examples.html"><strong aria-hidden="true">7.</strong> By Example</a></li><li><ol class="section"><li><a href="../example/hello_world.html"><strong aria-hidden="true">7.1.</strong> Hello World!</a></li><li><a href="../example/arithmetic.html"><strong aria-hidden="true">7.2.</strong> Arithmetic</a></li><li><a href="../example/user_input.html"><strong aria-hidden="true">7.3.</strong> User Input</a></li><li><a href="../example/conditionals.html"><strong aria-hidden="true">7.4.</strong> Conditional Statements</a></li><li><a href="../example/while.html"><strong aria-hidden="true">7.5.</strong> While Loop</a></li><li><a href="../example/for.html"><strong aria-hidden="true">7.6.</strong> For Loop</a></li></ol></li><li><a href="../ref/reference.html"><strong aria-hidden="true">8.</strong> Reference</a></li><li><ol class="section"><li><a href="../ref/ascii_table.html" class="active"><strong aria-hidden="true">8.1.</strong> ASCII Table</a></li><li><a href="../ref/unix_commands.html"><strong aria-hidden="true">8.2.</strong> Unix Commands</a></li><li><a href="../ref/data_types.html"><strong aria-hidden="true">8.3.</strong> Data Types</a></li><li><a href="../ref/keywords.html"><strong aria-hidden="true">8.4.</strong> Keywords</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">C++ Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="../print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#ascii-table" id="ascii-table">ASCII Table</a></h1>
+<p>This is only a subset of the ASCII table.  The first 32 ASCII codes are omitted as many of them are not used in the present (this table was made a <em>long</em> time ago) or are otherwise not characters you'd need to perform operations with in C++.</p>
+<table><thead><tr><th>ASCII</th><th>Symbol</th><th>ASCII</th><th>Symbol</th><th>ASCII</th><th>Symbol</th></tr></thead><tbody>
+<tr><td>32</td><td>(space)</td><td>64</td><td>@</td><td>96</td><td>`</td></tr>
+<tr><td>33</td><td>!</td><td>65</td><td>A</td><td>97</td><td>a</td></tr>
+<tr><td>34</td><td>&quot;</td><td>66</td><td>B</td><td>98</td><td>b</td></tr>
+<tr><td>35</td><td>#</td><td>67</td><td>C</td><td>99</td><td>c</td></tr>
+<tr><td>36</td><td>$</td><td>68</td><td>D</td><td>100</td><td>d</td></tr>
+<tr><td>37</td><td>%</td><td>69</td><td>E</td><td>101</td><td>e</td></tr>
+<tr><td>38</td><td>&amp;</td><td>70</td><td>F</td><td>102</td><td>f</td></tr>
+<tr><td>39</td><td>'</td><td>71</td><td>G</td><td>103</td><td>g</td></tr>
+<tr><td>40</td><td>(</td><td>72</td><td>H</td><td>104</td><td>h</td></tr>
+<tr><td>41</td><td>)</td><td>73</td><td>I</td><td>105</td><td>i</td></tr>
+<tr><td>42</td><td>*</td><td>74</td><td>J</td><td>106</td><td>j</td></tr>
+<tr><td>43</td><td>+</td><td>75</td><td>K</td><td>107</td><td>k</td></tr>
+<tr><td>44</td><td>,</td><td>76</td><td>L</td><td>108</td><td>l</td></tr>
+<tr><td>45</td><td>-</td><td>77</td><td>M</td><td>109</td><td>m</td></tr>
+<tr><td>46</td><td>.</td><td>78</td><td>N</td><td>110</td><td>n</td></tr>
+<tr><td>47</td><td>/</td><td>79</td><td>O</td><td>111</td><td>o</td></tr>
+<tr><td>48</td><td>0</td><td>80</td><td>P</td><td>112</td><td>p</td></tr>
+<tr><td>49</td><td>1</td><td>81</td><td>Q</td><td>113</td><td>q</td></tr>
+<tr><td>50</td><td>2</td><td>82</td><td>R</td><td>114</td><td>r</td></tr>
+<tr><td>51</td><td>3</td><td>83</td><td>S</td><td>115</td><td>s</td></tr>
+<tr><td>52</td><td>4</td><td>84</td><td>T</td><td>116</td><td>t</td></tr>
+<tr><td>53</td><td>5</td><td>85</td><td>U</td><td>117</td><td>u</td></tr>
+<tr><td>54</td><td>6</td><td>86</td><td>V</td><td>118</td><td>v</td></tr>
+<tr><td>55</td><td>7</td><td>87</td><td>W</td><td>119</td><td>w</td></tr>
+<tr><td>56</td><td>8</td><td>88</td><td>X</td><td>120</td><td>x</td></tr>
+<tr><td>57</td><td>9</td><td>89</td><td>Y</td><td>121</td><td>y</td></tr>
+<tr><td>58</td><td>:</td><td>90</td><td>Z</td><td>122</td><td>z</td></tr>
+<tr><td>59</td><td>;</td><td>91</td><td>[</td><td>123</td><td>{</td></tr>
+<tr><td>60</td><td>&lt;</td><td>92</td><td>\</td><td>124</td><td>|</td></tr>
+<tr><td>61</td><td>=</td><td>93</td><td>]</td><td>125</td><td>}</td></tr>
+<tr><td>62</td><td>&gt;</td><td>94</td><td>^</td><td>126</td><td>~</td></tr>
+<tr><td>63</td><td>?</td><td>95</td><td>_</td><td>127</td><td>(delete)</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="../ref/reference.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+                            <a rel="next" href="../ref/unix_commands.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="../ref/reference.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+                    <a href="../ref/unix_commands.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>C++ Book</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li><a href="first_program.html"><strong aria-hidden="true">1.</strong> Running Your First Program</a></li><li><a href="thomas.html"><strong aria-hidden="true">2.</strong> Accessing Thomas</a></li><li><a href="printing.html"><strong aria-hidden="true">3.</strong> Printing to the Terminal</a></li><li><a href="variables.html"><strong aria-hidden="true">4.</strong> Variables</a></li><li><ol class="section"><li><a href="arithmetic.html"><strong aria-hidden="true">4.1.</strong> Arithmetic</a></li></ol></li><li><a href="conditionals.html"><strong aria-hidden="true">5.</strong> Conditionals</a></li><li><a href="user_input.html"><strong aria-hidden="true">6.</strong> User Input</a></li><li><a href="example/examples.html"><strong aria-hidden="true">7.</strong> By Example</a></li><li><ol class="section"><li><a href="example/hello_world.html"><strong aria-hidden="true">7.1.</strong> Hello World!</a></li><li><a href="example/arithmetic.html"><strong aria-hidden="true">7.2.</strong> Arithmetic</a></li><li><a href="example/user_input.html"><strong aria-hidden="true">7.3.</strong> User Input</a></li><li><a href="example/conditionals.html"><strong aria-hidden="true">7.4.</strong> Conditional Statements</a></li><li><a href="example/while.html"><strong aria-hidden="true">7.5.</strong> While Loop</a></li><li><a href="example/for.html"><strong aria-hidden="true">7.6.</strong> For Loop</a></li></ol></li><li><a href="ref/reference.html"><strong aria-hidden="true">8.</strong> Reference</a></li><li><ol class="section"><li><a href="ref/ascii_table.html"><strong aria-hidden="true">8.1.</strong> ASCII Table</a></li><li><a href="ref/unix_commands.html"><strong aria-hidden="true">8.2.</strong> Unix Commands</a></li><li><a href="ref/data_types.html"><strong aria-hidden="true">8.3.</strong> Data Types</a></li><li><a href="ref/keywords.html"><strong aria-hidden="true">8.4.</strong> Keywords</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">C++ Book</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#running-your-first-c-program" id="running-your-first-c-program">Running Your First C++ Program</a></h1>
+<ul>
+<li>First log into Thomas</li>
+<li>Then <code>touch file.cpp</code></li>
+<li>Then open vim and type the following</li>
+</ul>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+	cout &lt;&lt; &quot;Hello world!&quot; &lt;&lt; endl;
+}
+</code></pre>
+<ul>
+<li>Then type <code>:wq</code></li>
+<li>Then type <code>g++ file.cpp</code></li>
+<li>Type <code>a.out</code> and you're good</li>
+</ul>
+<h1><a class="header" href="#butlers-teaching-cluster-thomas" id="butlers-teaching-cluster-thomas">Butler's Teaching Cluster: Thomas</a></h1>
+<p>Thomas is a supercomputer that sits at Butler.  It is used for teaching programming and allows students and faculty to use it to run large computations. For this course, you will use it to compile and run your C++ programs.</p>
+<p>To access Thomas from a school computer, you'll need to do two things:</p>
+<ul>
+<li>Map your network drive to Thomas</li>
+<li>Use Putty to connect to Thomas</li>
+</ul>
+<h2><a class="header" href="#map-your-network-drive" id="map-your-network-drive">Map Your Network Drive</a></h2>
+<h2><a class="header" href="#connecting-to-thomas" id="connecting-to-thomas">Connecting to Thomas</a></h2>
+<p>Thomas isn't like your personal computer.  There is no graphical interface like Windows on Thomas.  Instead, it uses a very lightweight Linux OS.  To interact with Thomas, we'll have to use what's called <em>the command line</em>.</p>
+<p>We'll use a program called Putty to do this.  Open it up and enter the following in the name field: <code>thomas.butler.edu</code>.  Then hit login.  It will open up a <em>terminal</em> and prompt you for your password.  Enter your butler username and password and you'll be logged into Thomas under your butler email.  Success!</p>
+<h2><a class="header" href="#finding-your-files" id="finding-your-files">Finding Your Files</a></h2>
+<p>See the <a href="./ref/unix_commands.html">unix commands</a> for more.</p>
+<h1><a class="header" href="#printing-to-the-terminal" id="printing-to-the-terminal">Printing to the Terminal</a></h1>
+<h1><a class="header" href="#variables" id="variables">Variables</a></h1>
+<p>Variables in math <em>are not exactly like variables in programming</em>!</p>
+<h1><a class="header" href="#arithmetic" id="arithmetic">Arithmetic</a></h1>
+<p>Here is a summary of operations you can perform on <code>int</code> variables.</p>
+<h2><a class="header" href="#basic-operations" id="basic-operations">Basic Operations</a></h2>
+<h3><a class="header" href="#addition" id="addition">Addition</a></h3>
+<p>This lets you add two variables together.</p>
+<pre><code class="language-c">int x = 5;
+int y = 7;
+
+int z = x + y; // z contains 12
+</code></pre>
+<h3><a class="header" href="#subtraction" id="subtraction">Subtraction</a></h3>
+<p>You can also subtract two variables together.  You can also negate the value of an <code>int</code>.</p>
+<pre><code class="language-c">int x = 6;
+int y = -2; // y is negative 2
+
+int z = x - y; // z contains 8
+</code></pre>
+<h3><a class="header" href="#multiplication" id="multiplication">Multiplication</a></h3>
+<p>No surprise here, you can multiply numbers together with an asterisk <code>*</code>.</p>
+<pre><code class="language-c">int x = 10;
+int y = -2;
+
+int z = x * y; // z contains -20
+</code></pre>
+<h2><a class="header" href="#trickier-operations" id="trickier-operations">Trickier Operations</a></h2>
+<h3><a class="header" href="#division" id="division">Division</a></h3>
+<p>And you can divide two numbers together with a forward slash <code>/</code>.  Just like in math, you can't divide by zero!  Doing this will cause your program to crash.</p>
+<pre><code class="language-c">int x = 20;
+int y = 4;
+
+int z = x / y; // z contains 5
+</code></pre>
+<h4><a class="header" href="#truncation" id="truncation">Truncation</a></h4>
+<h3><a class="header" href="#modulus" id="modulus">Modulus</a></h3>
+<p>Modulus is a fancy name for &quot;remainder after division&quot;.  In other words, when you divide 10 by 3, you get 3 with remainder 1.  This modulus operator, denoted by the percent sign <code>%</code>, will return that remainder.  This can be especially helpful when determining if a number is even or odd.</p>
+<pre><code class="language-c">int x = 14;
+int y = 4;
+
+int z = x % y; // z contains 2</code></pre>
+<h1><a class="header" href="#conditionals" id="conditionals">Conditionals</a></h1>
+<p>In this chapter, we are going to learn about the <code>if</code>, <code>else</code>, and <code>else if</code> blocks and how they <em>branch</em> code.  These allow us to make decisions based on variables.  These allow us to run different lines of code under different conditions.</p>
+<p>In addition, we'll learn about the conditions used to make those decisions.  These are evaluated to a new type of variable: a <em>boolean</em>.  These are values that are either <em>true</em> or <em>false</em>.  You can get booleans by using <em>comparators</em> like less than <code>&lt;</code>, greater than <code>&gt;</code>, etc.</p>
+<h1><a class="header" href="#user-input" id="user-input">User Input</a></h1>
+<p>A lot of problems that we solve by writing computer programs depend on user input.  You can't write a calculator without allowing the user to tell the program what they want to calculate!</p>
+<p>In a command line application, we do this by allowing the user to type during our application.  Let's try an example.</p>
+<p>Suppose we wanted to know how old a user was, so we could tell them if they could enter this bar (at this bar, you need to be 21 years old.)  Let's create a variable called age and then print to the user the question we'd like to ask.</p>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int age;
+    cout &lt;&lt; &quot;How old are you?&quot; &lt;&lt; endl;
+}
+</code></pre>
+<p>So far this program runs without any input from the user.  To get input from the user, we'll do sort of the opposite of <code>cout</code>.  We'll use <code>cin</code>.  That is, instead pushing something <em>out</em> to the console, we'll pull data <em>in</em> from the console.  These operations are like opposites.  In fact, we will change <code>&lt;&lt;</code> to <code>&gt;&gt;</code> and put the variable we want to fill in place of the phrase we want to print.</p>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int age;
+    cout &lt;&lt; &quot;How old are you?&quot; &lt;&lt; endl;
+    cin &gt;&gt; age;
+}
+</code></pre>
+<p>Let's run our program and see what happens!</p>
+<pre><code class="language-sh">&gt; ./a.out
+How old are you?
+25
+&gt; 
+</code></pre>
+<p>That &quot;25&quot; was written as if it were typed by a user.  It's cool that it ran smoothly, but how do we know it really stored what we typed in?  Why don't we print it to the screen afterwards.</p>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int age;
+    cout &lt;&lt; &quot;How old are you?&quot; &lt;&lt; endl;
+    cin &gt;&gt; age;
+    cout &lt;&lt; &quot;You are &quot; &lt;&lt; age &lt;&lt; &quot; years old.&quot; &lt;&lt; endl;
+}
+</code></pre>
+<pre><code class="language-sh">&gt; ./a.out
+How old are you?
+25
+You are 25 years old.
+&gt; 
+</code></pre>
+<p>Success!  Now lets try and solve our program.  We need to make a decision based on the user's age.  If the age is 21 or larger, then we should tell the user they can enter the bar.  If not, we should tell them they aren't old enough.  Then we end up with the final result.</p>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int age;
+    cout &lt;&lt; &quot;How old are you?&quot; &lt;&lt; endl;
+    cin &gt;&gt; age;
+    cout &lt;&lt; &quot;You are &quot; &lt;&lt; age &lt;&lt; &quot; years old.&quot; &lt;&lt; endl;
+
+    if (age &lt; 21) {
+        cout &lt;&lt; &quot;You are not old enough to enter.&quot; &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; &quot;You are old enough to enter the bar.&quot; &lt;&lt; endl;
+    }
+}
+</code></pre>
+<pre><code class="language-sh">&gt; ./a.out
+How old are you?
+19
+You are 19 years old.
+You are not old enough to enter.
+&gt; 
+</code></pre>
+<p>There we are!  A simple program that uses user input.  There are some other things you should keep in mind when using <code>cin</code> however.  Notice that we declared <code>age</code> as type <code>int</code>.  What would happen if we didn't type an integer in the terminal?  Let's see.</p>
+<pre><code class="language-sh">&gt; ./a.out
+How old are you?
+very
+You are 0 years old.
+You are not old enough to enter.
+&gt; 
+</code></pre>
+<p>Unexpected behavior can happen when you introduce a different data type at the command line.  Sometimes your code can even crash if the input is so unexpected.  But for the purposes of the code you write in this course, you can assume the user will only type in expected responses.</p>
+<h1><a class="header" href="#c-examples" id="c-examples">C++ Examples</a></h1>
+<p>This section of the book is to serve as a list of examples that slowly introduce programming concepts in C++.  This will contain less explaination about each concept than other parts of the book.  This will also leave out explainations about the common errors and limitations of concepts. </p>
+<h1><a class="header" href="#hello-world" id="hello-world">Hello World!</a></h1>
+<p>This is typically the first program one writes in a new programming language.  It ensures the user can both run code and print to the console.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+	cout &lt;&lt; &quot;Hello world!&quot; &lt;&lt; endl;
+}
+</code></pre>
+<pre><code class="language-sh">&gt; ./a.out
+Hello world!
+&gt;
+</code></pre>
+<h1><a class="header" href="#arithmetic-1" id="arithmetic-1">Arithmetic</a></h1>
+<p>Here we use variables of type <code>int</code>, or integers, to perform calculations and print the result to the user.</p>
+<pre><code class="language-cpp">#include &lt;iostream&gt;
+
+using namespace std;
+
+int main() {
+	int x = 20;
+    int y = 7;
+
+    int q = x / y;
+    int r = x % y;
+
+    cout &lt;&lt; x &lt;&lt; &quot; divided by &quot; &lt;&lt; y
+         &lt;&lt; &quot; is &quot; &lt;&lt; q &lt;&lt; &quot; with remainder &quot; &lt;&lt; r &lt;&lt; endl;
+
+    x = 5;
+    y = 2;
+
+    cout &lt;&lt; x &lt;&lt; &quot; times &quot; &lt;&lt; y &lt;&lt; &quot; is &quot; x * y &lt;&lt; endl;
+}
+</code></pre>
+<pre><code>&gt; ./a.out
+20 divided by 7 is 2 with remainder 6
+5 times 2 is 10
+&gt;
+</code></pre>
+<h1><a class="header" href="#user-input-1" id="user-input-1">User Input</a></h1>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int fav;
+    cout &lt;&lt; &quot;What is your favorite number?&quot; &lt;&lt; endl;
+    cin &gt;&gt; fav;
+
+    cout &lt;&lt; &quot;That's nice, but an even better number is &quot; &lt;&lt; fav + 1 &lt;&lt; &quot;.&quot; &lt;&lt; endl;
+}
+</code></pre>
+<pre><code>&gt; ./a.out
+What is your favorite number?
+42
+That's nice, but an even better number is 43.
+&gt;
+</code></pre>
+<h1><a class="header" href="#conditional-statements" id="conditional-statements">Conditional Statements</a></h1>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int age;
+    cout &lt;&lt; &quot;How old are you?&quot; &lt;&lt; endl;
+    cin &gt;&gt; age;
+    cout &lt;&lt; &quot;You are &quot; &lt;&lt; age &lt;&lt; &quot; years old.&quot; &lt;&lt; endl;
+
+    if (age &lt; 21) {
+        cout &lt;&lt; &quot;You are not old enough to enter.&quot; &lt;&lt; endl;
+    } else {
+        cout &lt;&lt; &quot;You are old enough to enter the bar.&quot; &lt;&lt; endl;
+    }
+}
+</code></pre>
+<pre><code>&gt; ./a.out
+How old are you?
+19
+You are 19 years old.
+You are not old enough to enter.
+&gt; 
+</code></pre>
+<h1><a class="header" href="#while-loop" id="while-loop">While Loop</a></h1>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    cout &lt;&lt; &quot;You need 100 dollars to buy the toy.&quot; &lt;&lt; endl;
+    int money = 0;
+    
+    while (money &lt; 100) {
+        cout &lt;&lt; &quot;You can't buy the toy with only &quot; &lt;&lt; money &lt;&lt; &quot; dollars.&quot; &lt;&lt; endl;
+        cout &lt;&lt; &quot;How much more do you want to save?&quot; &lt;&lt; endl;
+
+        int save;
+        cin &gt;&gt; save;
+
+        money += save;
+    }
+
+    cout &lt;&lt; &quot;You've saved &quot; &lt;&lt; money &lt;&lt; &quot; dollars so you can buy the toy!&quot; &lt;&lt; endl;
+}
+</code></pre>
+<pre><code>&gt; ./a.out
+You need 100 dollars to buy the toy.
+You can't buy the toy with only 0 dollars.
+How much more do you want to save?
+50
+You can't buy the toy with only 50 dollars.
+How much more do you want to save?
+20
+You can't buy the toy with only 70 dollars.
+How much more do you want to save?
+35
+You've saved 105 dollars so you can buy the toy!
+&gt; 
+</code></pre>
+<h1><a class="header" href="#for-loop" id="for-loop">For Loop</a></h1>
+<pre><code class="language-c">#include &lt;iostream&gt;
+
+using namespace std;
+
+main() {
+    int sum = 0;
+
+    for (int i = 1; i &lt;= 100; i++) {
+        if (i % 2 == 1) {
+            sum += i;
+        }
+    }
+
+    cout &lt;&lt; &quot;Sum of odd numbers between 1 and 100 is &quot; &lt;&lt; sum &lt;&lt; endl;
+}
+</code></pre>
+<pre><code>&gt; ./a.out
+Sum of odd numbers between 1 and 100 is 2500
+&gt; 
+</code></pre>
+<h1><a class="header" href="#reference" id="reference">Reference</a></h1>
+<p>Here you can find lots of information in one easy to read table.  You can find the following in the reference.</p>
+<ul>
+<li><a href="ref/./ascii_table.html">ASCII Table</a></li>
+<li>List of Unix Commands (for Thomas)</li>
+<li>List of <a href="ref/./data_types.html">Data types</a></li>
+<li>C++ Keywords</li>
+</ul>
+<h1><a class="header" href="#ascii-table" id="ascii-table">ASCII Table</a></h1>
+<p>This is only a subset of the ASCII table.  The first 32 ASCII codes are omitted as many of them are not used in the present (this table was made a <em>long</em> time ago) or are otherwise not characters you'd need to perform operations with in C++.</p>
+<table><thead><tr><th>ASCII</th><th>Symbol</th><th>ASCII</th><th>Symbol</th><th>ASCII</th><th>Symbol</th></tr></thead><tbody>
+<tr><td>32</td><td>(space)</td><td>64</td><td>@</td><td>96</td><td>`</td></tr>
+<tr><td>33</td><td>!</td><td>65</td><td>A</td><td>97</td><td>a</td></tr>
+<tr><td>34</td><td>&quot;</td><td>66</td><td>B</td><td>98</td><td>b</td></tr>
+<tr><td>35</td><td>#</td><td>67</td><td>C</td><td>99</td><td>c</td></tr>
+<tr><td>36</td><td>$</td><td>68</td><td>D</td><td>100</td><td>d</td></tr>
+<tr><td>37</td><td>%</td><td>69</td><td>E</td><td>101</td><td>e</td></tr>
+<tr><td>38</td><td>&amp;</td><td>70</td><td>F</td><td>102</td><td>f</td></tr>
+<tr><td>39</td><td>'</td><td>71</td><td>G</td><td>103</td><td>g</td></tr>
+<tr><td>40</td><td>(</td><td>72</td><td>H</td><td>104</td><td>h</td></tr>
+<tr><td>41</td><td>)</td><td>73</td><td>I</td><td>105</td><td>i</td></tr>
+<tr><td>42</td><td>*</td><td>74</td><td>J</td><td>106</td><td>j</td></tr>
+<tr><td>43</td><td>+</td><td>75</td><td>K</td><td>107</td><td>k</td></tr>
+<tr><td>44</td><td>,</td><td>76</td><td>L</td><td>108</td><td>l</td></tr>
+<tr><td>45</td><td>-</td><td>77</td><td>M</td><td>109</td><td>m</td></tr>
+<tr><td>46</td><td>.</td><td>78</td><td>N</td><td>110</td><td>n</td></tr>
+<tr><td>47</td><td>/</td><td>79</td><td>O</td><td>111</td><td>o</td></tr>
+<tr><td>48</td><td>0</td><td>80</td><td>P</td><td>112</td><td>p</td></tr>
+<tr><td>49</td><td>1</td><td>81</td><td>Q</td><td>113</td><td>q</td></tr>
+<tr><td>50</td><td>2</td><td>82</td><td>R</td><td>114</td><td>r</td></tr>
+<tr><td>51</td><td>3</td><td>83</td><td>S</td><td>115</td><td>s</td></tr>
+<tr><td>52</td><td>4</td><td>84</td><td>T</td><td>116</td><td>t</td></tr>
+<tr><td>53</td><td>5</td><td>85</td><td>U</td><td>117</td><td>u</td></tr>
+<tr><td>54</td><td>6</td><td>86</td><td>V</td><td>118</td><td>v</td></tr>
+<tr><td>55</td><td>7</td><td>87</td><td>W</td><td>119</td><td>w</td></tr>
+<tr><td>56</td><td>8</td><td>88</td><td>X</td><td>120</td><td>x</td></tr>
+<tr><td>57</td><td>9</td><td>89</td><td>Y</td><td>121</td><td>y</td></tr>
+<tr><td>58</td><td>:</td><td>90</td><td>Z</td><td>122</td><td>z</td></tr>
+<tr><td>59</td><td>;</td><td>91</td><td>[</td><td>123</td><td>{</td></tr>
+<tr><td>60</td><td>&lt;</td><td>92</td><td>\</td><td>124</td><td>|</td></tr>
+<tr><td>61</td><td>=</td><td>93</td><td>]</td><td>125</td><td>}</td></tr>
+<tr><td>62</td><td>&gt;</td><td>94</td><td>^</td><td>126</td><td>~</td></tr>
+<tr><td>63</td><td>?</td><td>95</td><td>_</td><td>127</td><td>(delete)</td></tr>
+</tbody></table>
+<h1><a class="header" href="#unix-commands" id="unix-commands">Unix Commands</a></h1>
+<p>This is a list of commands you might use on Thomas at the command line.  They are called &quot;Unix&quot; commands because Thomas runs on linux which uses these commands across all operated systems.  MacOS is also a Unix based operating system, whereas Windows is not, and has their own special set of commands.</p>
+<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>pwd</code></td><td>Prints the &quot;present working directory&quot;, the path of the folder you are currently at.</td></tr>
+<tr><td><code>ls</code></td><td>Lists all the files and folders in the current directory.</td></tr>
+<tr><td><code>cd dir/</code></td><td>Changes the current directory to the specified one.</td></tr>
+<tr><td><code>cd ..</code></td><td>Move out the current directory into the parent folder.</td></tr>
+<tr><td><code>touch file.txt</code></td><td>Creates a new file called <code>file.txt</code></td></tr>
+<tr><td><code>mkdir dir/</code></td><td>Creates a new folder called <code>dir/</code></td></tr>
+<tr><td><code>g++ file.cpp</code></td><td>Compiles C++ files. Output file is written to <code>a.out</code> by default.</td></tr>
+<tr><td><code>a.out</code></td><td>This isn't necessarily a command, but is the default file created after compiling a C++ file.  Simply typing the name of the file will run it.</td></tr>
+</tbody></table>
+<h1><a class="header" href="#data-types" id="data-types">Data Types</a></h1>
+<p>Every variable has a <em>data type</em> that describes what kind of variable it is.  This is a list of data types you might come across as a beginner in C++.</p>
+<table><thead><tr><th>Data Type</th><th align="left">Description</th></tr></thead><tbody>
+<tr><td><code>int</code></td><td align="left">Integers that range from [-2<sup>31</sup>, 2<sup>31</sup>)</td></tr>
+<tr><td><code>bool</code></td><td align="left">Values <code>true</code> or <code>false</code></td></tr>
+<tr><td><code>char</code></td><td align="left">Characters from the <a href="ref/./ascii_table.html">ASCII Table</a></td></tr>
+<tr><td><code>float</code></td><td align="left">Floating point numbers, or decimals</td></tr>
+</tbody></table>
+<!-- ## Integer Types
+
+These types are all integers.  They all very in size and purpose, but `int` is the most common and will typically serve all your needs.
+
+| Data Type | Range | Size |
+| -- | -- | -- |
+| `int` | [-2<sup>31</sup>, 2<sup>31</sup>)  | 4 bytes |
+| `long` | [-2<sup>31</sup>, 2<sup>31</sup>) | 8 bytes |
+| `long long` | [-2<sup>63</sup>, 2<sup>63</sup>) | 16 bytes |
+
+## Boolean
+
+The boolean is either true or false, where false is represented as a zero value and true is nonzero value.
+
+| Data Type | Size |
+| -- | -- | 
+| `bool` | 1 byte |
+
+## Character
+
+The character represents a symbol from the ASCII table.  Together they form a larger datatype called a "string".
+
+| Data Type | Size |
+| -- | -- | 
+| `char` | 1 byte | --><h1><a class="header" href="#keywords" id="keywords">Keywords</a></h1>
+<p>This is a list of <em>keywords</em> in C++.  Keywords describe certain constructs of C++, and represent specific ideas understood by the compiler.  These words cannot be used as variable names or function names, as they would be misunderstood as their cooresponding meaning in C++, not as a variable or function.</p>
+<p>This list should serve as a reference keywords that you should be aware of, so you don't accidently name a variable or function a keyword.  In addition, it can be used as a quick guide over all the constructs described in C++ that you might use in your programming course.</p>
+<table><thead><tr><th>Keyword</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>if</code></td><td>Marks the beginning of a conditional block.</td></tr>
+<tr><td><code>else</code></td><td>Defines a block that is run only when the preceding <code>if</code> condition is false.</td></tr>
+<tr><td><code>using namespace</code></td><td>Brings all the members of a certain object into scope, such as <code>std</code>.</td></tr>
+<tr><td><code>int</code></td><td>Primitive datatype for integers.</td></tr>
+<tr><td><code>bool</code></td><td>Primitive datatype for booleans.</td></tr>
+<tr><td><code>char</code></td><td>Primitive datatype for characters.</td></tr>
+</tbody></table>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
