@@ -11,4 +11,4 @@ This is a list of commands you might use on Thomas at the command line.  They ar
 | `touch file.txt` | Creates a new file called `file.txt` |
 | `mkdir dir/` | Creates a new folder called `dir/` |
 | `g++ file.cpp` | Compiles C++ files. Output file is written to `a.out` by default. |
-| `a.out` | This isn't necessarily a command, but is the default file created after compiling a C++ file.  Simply typing the name of the file will run it. |
+| `./a.out` | This isn't necessarily a command, but is the default file created after compiling a C++ file.  Simply typing the name of the file will run it. |
