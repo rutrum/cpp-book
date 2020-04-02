@@ -1,7 +1,5 @@
 # Conditional Statements
 
-
-
 ```c
 #include <iostream>
 
