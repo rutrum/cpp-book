@@ -5,6 +5,7 @@
 - [Printing to the Terminal](./printing.md)
 - [Variables](./variables.md)
     - [Arithmetic](./arithmetic.md)
+    - [Typecasting](./typecasting.md)
 - [Conditionals](./conditionals.md)
 - [User Input](./user_input.md)
 - [By Example](./example/examples.md)

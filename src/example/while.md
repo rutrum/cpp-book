@@ -5,7 +5,7 @@
 
 using namespace std;
 
-main() {
+int main() {
     cout << "You need 100 dollars to buy the toy." << endl;
     int money = 0;
     
